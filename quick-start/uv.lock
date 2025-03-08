@@ -1,0 +1,20 @@
+version = 1
+revision = 1
+requires-python = ">=3.13"
+
+[[package]]
+name = "quick-start"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "thespian" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "thespian", specifier = ">=4.0.0" }]
+
+[[package]]
+name = "thespian"
+version = "4.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/63/64/2e97f6980cc64eb6c831907daf22019fe0026b331eb2f24134d8d9a4e6ef/thespian-4.0.0.zip", hash = "sha256:f7692b5a09170a61fb41ad10fb4718d8a2b02a30de2582c0f08d03b529a84688", size = 513363 }
