@@ -10,7 +10,6 @@ class Hello(thea.Actor):
             world = self.createActor(World)
             world_msg = (sender, 'Hello,')
             self.send(world, world_msg)
-            self.send(world, thea.ActorExitRequest())
 
 
 class World(thea.Actor):
@@ -26,16 +25,10 @@ class Goodbye(thea.Actor):
 
 
 def run_example(systembase=None):
-    goodbye = thea.ActorSystem().createActor(Goodbye)
-
-    # First World instance
     hello = thea.ActorSystem(systembase).createActor(Hello)
+    goodbye = thea.ActorSystem().createActor(Goodbye)
     greeting = ActorSystem().ask(hello, 'are you there?', 1.5)
     print(greeting + '\n' + ActorSystem().ask(goodbye, None, 0.1))
-
-    # Second World instance
-    greeting2 = ActorSystem().ask(hello, 'are you there?', 1.5)
-    print(greeting2 + '\n' + ActorSystem().ask(goodbye, None, 0.1))
     ActorSystem().shutdown()
 
 
