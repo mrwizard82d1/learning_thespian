@@ -11,7 +11,7 @@ class Hello(thea.Actor):
         # **ignored**. The `sender` parameter is the "actor address"
         # of the `Actor` that sent the message to this Actor. It is
         # an opaque type.
-        self.send(sender, 'Hello, Thespian Universe!')
+        self.send(sender, 'Hello, Thespian World!')
         # When execution exits the `receiveMessage()` method,
         # this `Actor` **sleeps** until it receives another message.
         # Each `Actor` processes **exactly one` message at a time.
