@@ -29,6 +29,7 @@ def run_example(systembase=None):
     goodbye = thea.ActorSystem().createActor(Goodbye)
     greeting = ActorSystem().ask(hello, 'are you there?', 1.5)
     print(greeting + '\n' + ActorSystem().ask(goodbye, None, 0.1))
+    ActorSystem().shutdown()
 
 
 if __name__ == '__main__':
