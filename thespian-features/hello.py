@@ -29,7 +29,7 @@ def say_hello():
     # is no longer needed, one may call its `shutdown()` method to
     # release all associated resources. When an Actor System is shutdown,
     # any Actors running in that Actor System **will also be terminated**.
-    hello = thea.ActorSystem().createActor(Hello)
+    hello = thea.ActorSystem(systemBase='multiprocTCPBase').createActor(Hello)
 
     # The call to the `ask()` method sends a message and then waits
     # for a response message. The message is the query text (a `string`):
@@ -45,6 +45,9 @@ def say_hello():
     # Actor implementation**. There is no requirement that a response must
     # be generated for each received message. In fact, an Actor may send
     # **several responses** or **no response at all**.
+
+    # Shutdown the "hello" actor.
+    thea.ActorSystem().tell(hello, thea.ActorExitRequest)
 
 
 if __name__ == "__main__":
