@@ -1,7 +1,7 @@
 """Dynamic Actor Creation"""
 
 import thespian.actors as thea
-from thespian.actors import ActorSystem
+from thespian.actors import ActorSystem, ActorExitRequest
 
 
 class Hello(thea.Actor):
@@ -17,6 +17,7 @@ class World(thea.Actor):
         if isinstance(message, tuple):
             original_sender, pre_world_text = message
             self.send(original_sender, pre_world_text + ' Thespian World!')
+            self.send(self.myAddress, ActorExitRequest())
 
 
 class Goodbye(thea.Actor):
